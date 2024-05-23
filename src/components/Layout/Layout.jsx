@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import Navbar from '../Navbar/Navbar.jsx'
 import Footer from '../Footer/Footer.jsx'
 import { Outlet, useNavigate } from 'react-router-dom'
-import { EcommerceContext } from '../Context/ecommerceContext.jsx'
+import { EcommerceContext } from '../../Context/ecommerceContext.jsx'
 
 export default function Layout() {
   let{setUser}=useContext(EcommerceContext)

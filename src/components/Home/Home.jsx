@@ -3,7 +3,7 @@ import header from '../../header.jpg'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { EcommerceContext } from '../Context/ecommerceContext.jsx';
+import { EcommerceContext } from '../../Context/ecommerceContext.jsx';
 import { useEffect } from 'react';
 import style from './Home.module.css'
 import { Link, useParams } from 'react-router-dom';

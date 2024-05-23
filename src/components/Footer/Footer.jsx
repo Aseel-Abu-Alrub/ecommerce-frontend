@@ -14,10 +14,10 @@ export default function Footer() {
           <img src={logo} className='' alt="" />
           <p className='para mt-3 '>We are a team of designers and developers that create high quality WordPress</p>
           <div className="icons">
-          <a href=''><i class="fa-brands fa-facebook-f"></i></a>
-           <a href=''><i class="fa-brands fa-twitter"></i></a>
-          <a href=''> <i class="fa-brands fa-linkedin-in"></i></a>
-          <a href=''> <i class="fa-brands fa-vimeo-v"></i></a>
+          <a href=''><i className="fa-brands fa-facebook-f"></i></a>
+           <a href=''><i className="fa-brands fa-twitter"></i></a>
+          <a href=''> <i className="fa-brands fa-linkedin-in"></i></a>
+          <a href=''> <i className="fa-brands fa-vimeo-v"></i></a>
           </div>
           </div>
           
@@ -48,8 +48,8 @@ export default function Footer() {
           <h4>Talk To Us</h4>
           <p className='p-0 m-0 mt-3'>Got Questions? Call us</p>
           <a href="tel:+970-569437506">+970-569437506</a><br/>
-          <i class="fa-solid fa-envelope-open me-2 my-3 text-white"></i><a href="mailto:shofy@support.com"  >shofy@support.com</a><br/>
-          <i class="fa-solid fa-location-dot me-2 text-white"></i><a  href="https://www.google.com/maps/place/Sleepy+Hollow+Rd,+Gouverneur,+NY+13642%D8%8C+%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A7%D8%AA+%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9%E2%80%AD/@44.3304928,-75.453048,17z/data=!3m1!4b1!4m6!3m5!1s0x4cccddac8972c5eb:0x56286024afff537a!8m2!3d44.3304928!4d-75.453048!16s%2Fg%2F1tdsjdj4?entry=ttu">79 Sleepy Hollow St.
+          <i className="fa-solid fa-envelope-open me-2 my-3 text-white"></i><a href="mailto:shofy@support.com"  >shofy@support.com</a><br/>
+          <i className="fa-solid fa-location-dot me-2 text-white"></i><a  href="https://www.google.com/maps/place/Sleepy+Hollow+Rd,+Gouverneur,+NY+13642%D8%8C+%D8%A7%D9%84%D9%88%D9%84%D8%A7%D9%8A%D8%A7%D8%AA+%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9%E2%80%AD/@44.3304928,-75.453048,17z/data=!3m1!4b1!4m6!3m5!1s0x4cccddac8972c5eb:0x56286024afff537a!8m2!3d44.3304928!4d-75.453048!16s%2Fg%2F1tdsjdj4?entry=ttu">79 Sleepy Hollow St.
           Jamaica, New York 1432 </a>
 
         </div>
