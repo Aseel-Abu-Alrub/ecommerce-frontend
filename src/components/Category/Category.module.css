@@ -1,0 +1,14 @@
+.back{
+    background-image: url("../../banner-11.jpg");
+    background-size: cover;
+    height:60vh;
+}
+
+.back p{
+   font-size:27px;
+   color: white; 
+}
+.back  span{
+    font-size:18px;
+    color: rgb(235, 99, 99) 
+ }

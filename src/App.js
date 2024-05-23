@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Layout from './components/Layout/Layout.jsx'
+import Home from './components/Home/Home.jsx'
+import NotFound from './components/NotFound/NotFound.jsx'
+import Register from './components/Register/Register.jsx'
+import Login from './components/Login/Login.jsx'
+import { ToastContainer } from 'react-toastify'
+import { EcommerceContextProvider } from './components/Context/ecommerceContext.jsx'
+import { CartContextProvider } from './components/Context/cartContext.jsx'
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute.jsx'
+import Cart from './components/Cart/Cart.jsx'
+import Product from './components/Product/Product.jsx'
+import About from './components/About/About.jsx'
+import Contact from './components/Contact/Contact.jsx'
+import Category from './components/Category/Category.jsx'
+import ProductDetails from './components/ProductDetails/ProductDetails.jsx'
+export default function App() {
 
-function App() {
+  const router=createBrowserRouter([
+   {path:'',element:<Layout/>,children:[
+   {index:true,element:<Home/>},
+   {path:'home',element:<Home/>},
+   {path:'register',element:<Register/>},
+   {path:'login',element:<Login/>},
+   {path:'cart',element:<ProtectedRoute><Cart/></ProtectedRoute>},
+   {path:'about',element:<About/>},
+   {path:'contact',element:<Contact/>},
+   {path:'categories/:id',element:<Category/>},
+   {path:'details/:id',element:<ProductDetails/>},
+   {path:'product',element:<Product/>},
+   {path:'*',element:<NotFound/>}
+
+
+
+   ]} 
+  ])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <>
+      <EcommerceContextProvider>
+        <CartContextProvider>
+      <RouterProvider router={router}></RouterProvider>
+       
+         <ToastContainer/>
+       </CartContextProvider>
+      </EcommerceContextProvider>
+           
+
+      </>
+
+    
+  )
 }
 
-export default App;

@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500&family=Dosis:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500&family=Poppins:wght@400;500;600&family=Raleway:wght@400;500;600&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+a{
+/* color:#616161; */
+color: rgba(255,255,255,0.5);
+font-size:15px;
+font-weight: 500;
+text-decoration: none;
+}
+ul.list{
+list-style-type:none;
+}
+.footerr{
+    /* background-color: #eee !important;   */
+}
+.container{
+ width:80%;
+ margin: auto; 
+  
+}
+
+a:hover{
+color: rgb(35, 120, 199);
+}
+.footerr h4{
+ color: aliceblue;   
+}
+section.footer{
+/* background-color:#F4F7F9; */
+background-color:#162633 !important
+}
+section.footer ul li{
+    line-height:35px;
+
+}
+
+section.footer h4{
+font-size:23px;
+margin-top:50px;
+}
+@media screen and(max-width:767px) {
+    section.footer h4{
+        margin-top: 40px;
+    }
+   
+}
+p.para{
+font-size: 18px;
+/* color: rgb(1, 15, 28); */
+color:white;
+
+}
+
+section.footer .last p{
+font-size: 14px;
+/* color: rgb(85, 88, 91); */
+color:#F1C40F !important;
+}
+section.footer .last a:nth-child(3){
+/* color: #010F1C; */
+color:white;
+font-size: 22px;
+margin-bottom: 70px;
+}
+section.footer .last a:nth-child(1){
+display: inline-block;
+width:100px !important;
+}
+section.footer .last a{
+font-weight: 400;
+font-size:16px;
+}
+
+section.footer .last a:nth-child(3):hover{
+color:rgb(35, 120, 199);
+}
+.icons i{
+  background-color: white;  
+  width:35px;
+  color:#010F1C;
+  height:35px;
+  margin-left:6px;
+  line-height:35px;
+  text-align: center;
+  box-shadow:0px 2px 5px 0px rgba(0,0,0,0.2);
+}
+
+.icons i:hover{
+    background-color:#5783DB ;
+    color: white;
+    transition:0.5s;
+}
+
+.footer2{
+    position:relative;
+    background-color:#171B22;
+}
+/* .footer2::after {
+content: "";
+position:absolute;
+width:100%;
+height:1px;
+background-color:rgba(0,0,0,0.2);
+top:-18px;
+} */
+
+.footer2 p a{
+    color:rgb(9, 137, 255);
+}

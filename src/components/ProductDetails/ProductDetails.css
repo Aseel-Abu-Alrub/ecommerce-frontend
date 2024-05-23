@@ -1,0 +1,40 @@
+.image-gallery-icon{
+    display: none;
+}
+
+span.colors{
+  position: relative;
+}
+
+span.colors::after{
+content:''; 
+position:absolute;
+width:27px;
+height:27px;
+border:1px solid gray ;
+border-radius: 50%;
+right:50%;
+transform: translate(50%,50%);
+bottom: 50%;
+
+}
+span.colors:hover::after{
+    border:1px solid rgb(56, 56, 214);
+    box-shadow: 0 0 20px 0 gray ;
+    
+    }
+
+ span.size{
+    
+ }   
+ /* span.size:hover{
+background-color: rgb(5, 70, 5);
+color: white;
+cursor:default;
+} */
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: #17696A !important;
+    color:white !important
+
+}
