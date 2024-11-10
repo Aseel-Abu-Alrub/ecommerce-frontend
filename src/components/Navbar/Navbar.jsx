@@ -1,27 +1,32 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { EcommerceContext } from "../../Context/ecommerceContext.jsx";
 import logo from "../../shofy-removebg-preview.png";
 import user2 from "../../user.png";
 import style from "./Navbar.module.css";
+import { useCart } from "../../hooks/use-contexts.js";
 
 export default function Navbar({ logout }) {
     let { user } = useContext(EcommerceContext);
+    let{getcart,count}=useCart()
 
+  
     useEffect(() => {
         console.log({ user });
+       
     }, []);
 
     return (
         <nav
-            className="navbar navbar-expand-lg   bg-body-tertiary "
-            style={{
-                position: "fixed",
-                width: "100%",
-                zIndex: "1000",
+            className="navbar navbar-expand-lg  bg-body-tertiary "
+               style={{
+                //  position:"fixed",
+                //  width: "100%",
+                 zIndex: "1000",
+                top:0,
                 boxShadow: "0 0 10px 0px gray",
             }}
-        >
+        > 
             <div className="container-fluid">
                 <Link className="navbar-brand" to="">
                     <img src={logo} alt="logo" className="w-75" />
@@ -64,13 +69,13 @@ export default function Navbar({ logout }) {
                             </Link>
                         </li>
                     </ul>
-                    {user ? (
+                    {user ? 
                         <>
                             <ul className="navbar-nav ms-auto d-flex justify-content-center align-items-center">
                                 <li className="nav-item  ">
                                     <i className="fa-regular fa-heart fs-5 me-4"></i>
                                     <Link to="cart" className={style.cart}>
-                                        <i className="fa-solid fa-cart-shopping me-4 fs-5 "></i>
+                                        <i className={`fa-solid fa-cart-shopping me-4 fs-5  `}>{count? <span className='text-white py-1 ' style={{backgroundColor:'red',fontSize:'9px',position:'absolute',top:'-15px',left:'14px',borderRadius:'50%',width:'18px',height:'18px',textAlign:'center'}} >{count}</span>:''}</i>
                                     </Link>
                                 </li>
                                 <li className="nav-item">
@@ -104,9 +109,10 @@ export default function Navbar({ logout }) {
                                                 </div>
                                             </li>
                                             <li>
-                                                <a className="dropdown-item" href="#">
-                                                    Profile
-                                                </a>
+                                              <a classname="dropdown-item">
+                                                Profile
+                                                 </a>
+
                                             </li>
 
                                             <li>
@@ -122,7 +128,7 @@ export default function Navbar({ logout }) {
                                 </li>
                             </ul>
                         </>
-                    ) : (
+                    : 
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item">
                                 <Link className="nav-link" to="login">
@@ -135,7 +141,7 @@ export default function Navbar({ logout }) {
                                 </Link>
                             </li>
                         </ul>
-                    )}
+                    }
                 </div>
             </div>
         </nav>

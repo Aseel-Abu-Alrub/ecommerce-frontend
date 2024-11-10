@@ -16,8 +16,12 @@ import Contact from "./components/Contact/Contact.jsx";
 import Category from "./components/Category/Category.jsx";
 import ProductDetails from "./components/ProductDetails/ProductDetails.jsx";
 import ApiContextProvider from "./Context/ApiContext.jsx";
+import axios from "axios";
 
 export default function App() {
+
+    // axios.defaults.baseURL="https://ecommerce-backend-olpp.onrender.com"
+  
     const router = createBrowserRouter([
         {
             path: "",

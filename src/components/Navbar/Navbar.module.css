@@ -18,8 +18,11 @@
     
  }
 
+
+
 .cart{
 color: black;
+position: relative;
 }
  
 .navItem a::after{

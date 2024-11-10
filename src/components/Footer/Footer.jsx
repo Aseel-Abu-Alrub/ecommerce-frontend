@@ -7,7 +7,7 @@ import logo from '../../shofy-removebg-preview.png'
 
 export default function Footer() {
   return (
-    <section className= {`pt-5 mt-5 ${style.footerr}`}>
+    <section className= {` ${style.footerr}`}>
       {/* <div className={style.container}>
         <div className="row   ">
           <div className="col-md-4 col-lg-3 mt-4 pt-3">
@@ -60,7 +60,7 @@ export default function Footer() {
    
       
       </div> */}
-      <div className="footer2  pb-3 bg-light ">
+      <div className="footer2  pb-3  ">
         <div className="row ">
           <div className="col-md-9">
             <p className='ms-5 mt-4'>Copyright © 2022. All Rights Reserved By Movflx</p>

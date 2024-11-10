@@ -1,16 +1,22 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Login.css";
 import { useFormik } from "formik";
 import { loginShema } from "../Schema/LoginShema.js";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { EcommerceContext } from "../../Context/ecommerceContext.jsx";
+import "./Login.css";
+import { ApiContext } from "../../Context/ApiContext.jsx";
+import { useLoading } from "../../hooks/use-contexts.js";
+
 
 export default function Login() {
     let navigate = useNavigate();
     let { saveUserData } = useContext(EcommerceContext);
     let [statusError, setStatusError] = useState("");
+    const {changeLoading} = useContext(ApiContext)
+    const{loading}=useLoading()
+
 
     const { values, errors, touched, handleChange, handleSubmit, handleBlur } = useFormik({
         initialValues: {
@@ -23,9 +29,13 @@ export default function Login() {
 
     async function sendLoginData(values) {
         try {
-            const { data } = await axios.post("/auth/signin", values);
+             
+            changeLoading('login',true)
+            const {data}=await axios.post("https://ecommerce-backend-olpp.onrender.com/auth/signin", values);
+            console.log(data)
+
             if (data.message == "success") {
-                // console.log(data)
+                 console.log(data)
                 setStatusError("");
                 localStorage.setItem("userToken", data.token);
                 saveUserData();
@@ -38,12 +48,15 @@ export default function Login() {
             console.log(err.response.data.message);
             setStatusError(err.response.data.message);
         }
+        finally{
+         changeLoading('login',false)   
+        }
     }
     return (
         <div className="container mt-5">
-            <div className="forms-container ">
+            <div className="forms-container " >
                 <div className="form-control signin-form mt-5">
-                    <form action="#" onSubmit={handleSubmit}>
+                    <form  onSubmit={handleSubmit}>
                         <h2>Signin</h2>
                         <input
                             type="email"
@@ -82,7 +95,22 @@ export default function Login() {
                                 Forget password?
                             </Link>
                         </div>
-                        <button type="submit">Signin</button>
+                        <button type="submit">
+                            {loading.login?
+                            (
+                                <div className="spinner-border text-center ms-4 text-light "style={{fontSize:'15px',height:'20px',width:'20px'}}  role="status">
+                                <span className="sr-only" style={{fontSize:'1px'}}>...</span>
+                             </div>
+                             
+
+                            )
+                            : (
+                                <p>Signin</p>
+                            )
+                            
+                        }
+                            
+                            </button>
                     </form>
                     {/* <span>or signin with</span>
         <div className="socials">

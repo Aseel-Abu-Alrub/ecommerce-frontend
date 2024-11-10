@@ -5,13 +5,16 @@ import { EcommerceContext } from "../../Context/ecommerceContext.jsx";
 import style from "./Category.module.css";
 import Rating from "react-rating";
 import Loading from "../Loading/Loading.jsx";
+import { useCart } from "../../hooks/use-contexts.js";
 
 export default function Category() {
-    const { getSubCategory, getProduct, getSpesificSubCategory, ratingProduct, decreaseRating } =
+    const { getSubCategory, getProduct, getSpesificSubCategory, ratingProduct, decreaseRating,getallProduct } =
         useContext(EcommerceContext);
     let [subCategory, setSubCategory] = useState([]);
-    let pages = [1, 2, 3, 4];
+    let pages = [1, 2, 3];
     let [Product, setProduct] = useState([]);
+    let{getcart}=useCart()
+
     let [isloading, setIsLoading] = useState(true);
     let [All, setAll] = useState([]);
 
@@ -21,15 +24,41 @@ export default function Category() {
         let res = await getSubCategory(id);
         console.log(res.subcategory);
         setSubCategory(res.subcategory);
+        
     }
 
+    async function getallProductFun(){
+        let res=await getallProduct()
+        res.product.map((pr)=>{
+            console.log(pr.categoryId==id?pr:'no')
+           if( pr.categoryId==id){
+               setAll(pr)
+           } 
+
+        
+       })
+    }
     async function getProductFun(p, l) {
         let res = await getProduct(p, l);
         setProduct([]);
+        // console.log(res.product)
         setAll(res.product);
+    //       res.product.map((pr)=>{
+    //      console.log(pr.categoryId==id?pr:'no')
+    //        if( pr.categoryId==id){
+    //          setAll(pr)
+
+    //        } 
+    //        console.log(All)
+
+        
+    //    })
+            await getcart()
+
+       
+
     }
 
-    async function getProductDetailsFun() {}
 
     async function getSpesificSubCategoryFun(id2) {
         let res = await getSpesificSubCategory(id2);
@@ -50,14 +79,16 @@ export default function Category() {
             setIsLoading(false);
         }, 2000);
         getSubCategoryFun();
-        getProductFun(1, 8);
+        // getallProductFun()
+        getProductFun(1,8);
+
     }, []);
 
     if (isloading) {
         return <Loading />;
     } else
         return (
-            <div className="subCategory ">
+            <div className="subCategory bg-light ">
                 <div className={style.back}>
                     <div
                         className="title text-center d-flex  "
@@ -298,37 +329,40 @@ export default function Category() {
                             </div>
                         </div>
 
-                        <div className="d-flex justify-content-center align-items-center">
-                            <nav aria-label="Page navigation example ">
-                                <ul className="pagination justify-content-end">
-                                    <li className="page-item disabled">
-                                        <a className="page-link">Previous</a>
-                                    </li>
+                         {All.length==8?
+                         <div className="d-flex justify-content-center align-items-center">
+                         <nav aria-label="Page navigation example ">
+                             <ul className="pagination justify-content-end">
+                                 <li className="page-item disabled">
+                                     <a className="page-link">Previous</a>
+                                 </li>
 
-                                    {pages.map((page, index) => {
-                                        return (
-                                            <li className="page-item " key={index}>
-                                                <button
-                                                    className="page-link"
-                                                    onClick={() => {
-                                                        getProductFun(page, 8);
-                                                    }}
-                                                >
-                                                    {page}
-                                                </button>
-                                            </li>
-                                        );
-                                    })}
-                                    {/* <li className="page-item" ><button className="page-link">2</button></li>
-            <li className="page-item"><button className="page-link" >3</button></li> */}
-                                    <li className="page-item">
-                                        <a className="page-link" href="#">
-                                            Next
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                                 {pages.map((page, index) => {
+                                     return (
+                                         <li className="page-item " key={index}>
+                                             <button
+                                                 className="page-link"
+                                                 onClick={() => {
+                                                     getProductFun(page, 8);
+                                                 }}
+                                             >
+                                                 {page}
+                                             </button>
+                                         </li>
+                                     );
+                                 })}
+                                 {/* <li className="page-item" ><button className="page-link">2</button></li>
+         <li className="page-item"><button className="page-link" >3</button></li> */}
+                                 <li className="page-item">
+                                     <a className="page-link" href="#">
+                                         Next
+                                     </a>
+                                 </li>
+                             </ul>
+                         </nav>
+                         </div>
+                         :''}
+                        
                     </div>
                 </div>
             </div>

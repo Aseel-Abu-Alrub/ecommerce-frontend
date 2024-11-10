@@ -9,8 +9,8 @@ span.colors{
 span.colors::after{
 content:''; 
 position:absolute;
-width:27px;
-height:27px;
+width:36px;
+height:36px;
 border:1px solid gray ;
 border-radius: 50%;
 right:50%;
@@ -33,8 +33,13 @@ color: white;
 cursor:default;
 } */
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+.size.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
     background-color: #17696A !important;
     color:white !important
+
+}
+.clrr.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+
+box-shadow: 0 0 10px 4px #17696A !important;
 
 }

@@ -1,0 +1,80 @@
+th,td{
+    vertical-align:middle;
+    padding:5px;
+
+}
+th{
+ background-color:rgba(238, 235, 235, 0.651) !important;
+ padding:20px !important;
+   
+}
+td{
+    background-color:rgba(247, 243, 243, 0.651) !important;
+   
+}
+tr{
+    border-radius: 40px !important; 
+  
+}
+tr th{
+ color: rgb(134, 134, 134) !important;  
+}
+
+.confirm-box{
+ left:40% !important; 
+
+}
+.confirm-box .confirm-box__content{
+   height:150px !important; 
+   width:330px;
+  text-align: center;
+}
+
+.confirm-box .confirm-box__content span{
+    display: inline-block;
+  margin-top:30px !important;  
+}
+
+.confirm-box .confirm-box__content .confirm-box__actions{
+   margin-top:30px !important; 
+   text-align: center !important;
+   justify-content: center;
+}
+
+.confirm-box .confirm-box__content .confirm-box__actions button:first-child{
+    background-color: rgb(194, 19, 19) !important;
+    border:none;
+    padding:5px 20px !important;
+    color: white;
+    border-radius: 6px;
+
+}
+
+.confirm-box .confirm-box__content .confirm-box__actions button:hover:first-child{
+    background-color: rgb(226, 16, 16) !important;
+    border:none;
+    padding:5px 20px !important;
+    color: white;
+    border-radius: 6px;
+    transition:0.5s;
+
+}
+
+.confirm-box .confirm-box__content .confirm-box__actions button:last-child{
+    background-color: rgb(121, 120, 120) !important;
+    border:none;
+    padding:5px 20px !important;
+    color: white;
+    border-radius: 6px;
+
+}
+
+.confirm-box .confirm-box__content .confirm-box__actions button:hover:last-child{
+    background-color: rgb(153, 151, 151) !important;
+    border:none;
+    padding:5px 20px !important;
+    color: white;
+    border-radius: 6px;
+    transition:0.6s;
+
+}

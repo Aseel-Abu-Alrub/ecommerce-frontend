@@ -7,10 +7,15 @@ import { EcommerceContext } from '../../Context/ecommerceContext.jsx';
 import { useEffect } from 'react';
 import style from './Home.module.css'
 import { Link, useParams } from 'react-router-dom';
+import { useCart, useLoading } from '../../hooks/use-contexts.js';
+import Loading from '../Loading/Loading.jsx';
 
 export default function Home() {
 const{getCategories,getSpecificCategory}=useContext(EcommerceContext)
 let[categories,setCategories]=useState([])
+let{getcart}=useCart()
+let{loading}=useLoading()
+
 let{id}=useParams()
     let settings = {
       dots: true,
@@ -23,19 +28,28 @@ let{id}=useParams()
     }
 
     async function getCategoriesFun(){
+     
       let res=await getCategories()
-      setCategories(res.category)
-      console.log(res.category)
-    }
-    async function getSpecificCategoryFun(){
-    let res=await getSpecificCategory(id)
+       setCategories(res.category)
     
-    }
-    useEffect(()=>{
-getCategoriesFun()
-    },[])
+        await getcart()
 
+       
+      console.log(res)
+
+    }
+    // async function getSpecificCategoryFun(){
+    // let res=await getSpecificCategory(id)
     
+    // }
+useEffect(()=>{
+      getCategoriesFun() 
+      
+},[])
+
+    if(loading.category){
+      return <Loading/>
+    }
   return (
     <section>
     <div className="background">
